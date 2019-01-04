@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `);
 
     const caseTemplate = path.resolve("src/templates/shoe.jsx");
+    console.log(pages.data.allPrismicShoe.edges);
 
     pages.data.allPrismicShoe.edges.forEach(edge => {
         createPage({

@@ -5,7 +5,6 @@ import Img from "gatsby-image";
 import styled from "react-emotion";
 import { Flex } from "grid-emotion";
 import { rgba } from "polished";
-import { randomNumber } from "../utils/randomNumber";
 
 const Item = styled(Flex)`
     flex-basis: calc(99.9% * 1 / 2 - 4rem);
@@ -95,11 +94,7 @@ const StyledLink = styled(Link)`
 `;
 
 const GridItem = ({ uid, image, alt, title, subtitle }) => (
-    <Item
-        flexDirection="column"
-        key={uid}
-        style={{ marginTop: `${randomNumber(4, 8) * 2}rem` }}
-    >
+    <Item flexDirection="column" key={uid} style={{ marginTop: `4rem` }}>
         <StyledLink to={uid}>
             <Overlay
                 justifyContent="center"
