@@ -106,7 +106,7 @@ const ShoeTemplate = ({ data: { prismicShoe: shoeNode } }) => {
                 </TitleWrapper>
             </Hero>
             <Wrapper py={4} px={4} mx="auto">
-                <SubTitle>{data.price}</SubTitle>
+                <SubTitle>${data.price}</SubTitle>
                 <Content
                     dangerouslySetInnerHTML={{ __html: data.description.html }}
                 />
