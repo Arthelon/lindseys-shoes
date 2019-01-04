@@ -90,7 +90,7 @@ const Contact = styled(Wrapper)`
 
 const IndexPage = ({
     data: {
-        caseStudies: { edges }
+        shoes: { edges }
     }
 }) => (
     <Layout>
@@ -109,9 +109,9 @@ const IndexPage = ({
                     image={
                         c.node.data.header_image.localFile.childImageSharp.fluid
                     }
-                    alt={c.node.data.title.text}
-                    title={c.node.data.title.text}
-                    subtitle={c.node.data.subtitle.text}
+                    alt={c.node.data.name.text}
+                    title={c.node.data.name.text}
+                    subtitle={c.node.data.description.text}
                 />
             ))}
         </Wrapper>
@@ -233,33 +233,37 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
     query IndexQuery {
-        caseStudies: allPrismicCaseStudy(
+        shoes: allPrismicShoe(
             sort: { fields: [last_publication_date], order: DESC }
         ) {
             edges {
                 node {
                     uid
+                    first_publication_date
+                    last_publication_date
                     data {
                         header_image {
                             localFile {
                                 childImageSharp {
                                     fluid(
-                                        maxWidth: 900
-                                        maxHeight: 900
+                                        maxWidth: 1920
                                         quality: 90
                                         traceSVG: { color: "#021212" }
-                                        cropFocus: ENTROPY
                                     ) {
                                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                                    }
+                                    resize(width: 800) {
+                                        src
                                     }
                                 }
                             }
                         }
-                        title {
+                        name {
                             text
                         }
-                        subtitle {
-                            text
+                        price
+                        description {
+                            html
                         }
                     }
                 }
