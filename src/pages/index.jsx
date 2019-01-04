@@ -32,15 +32,16 @@ const Logo = styled.h2`
 
 const Hero = styled.div`
     width: 50%;
-    margin-top: 15em;
-    max-height: 300px;
+    margin-top: 10em;
+    max-height: 250px;
     text-align: center;
     background: white;
     border-radius: 5px;
-    padding: 3rem;
+    padding: 2rem;
     h1 {
         letter-spacing: 0.2rem;
-        line-height: 4.5rem;
+        line-height: 4rem;
+        font-size: 3rem;
     }
     h3 {
         font-family: ${props => props.theme.fontFamily.body};
@@ -273,8 +274,15 @@ const IndexPage = ({
             alignItems="center"
             flexDirection="column"
         >
-            <h1>Say hi!</h1>
-            <h3>contact@domain.com</h3>
+            <h1>
+                <b>Have questions?</b>
+            </h1>
+            <h3>
+                Reach out to us at{" "}
+                <a href="mailto: lindsey-shoes@gmail.com">
+                    lindseys-shoes@gmail.com
+                </a>
+            </h3>
         </Contact>
         <Footer />
     </Layout>

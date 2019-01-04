@@ -37,7 +37,7 @@ const typography = new Typography({
         },
         {
             name: "Raleway",
-            styles: ["400"]
+            styles: ["400", "800"]
         }
     ],
     scaleRatio: 3.998,
