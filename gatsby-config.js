@@ -9,7 +9,8 @@ module.exports = {
     /* General Information */
     pathPrefix: config.pathPrefix,
     siteMetadata: {
-        siteUrl: config.siteUrl + pathPrefix
+        siteUrl: config.siteUrl + pathPrefix,
+        siteEmail: config.siteEmail
     },
     /* Plugins */
     plugins: [

@@ -90,7 +90,10 @@ const Contact = styled(Wrapper)`
 
 const IndexPage = ({
     data: {
-        shoes: { edges }
+        shoes: { edges },
+        site: {
+            siteMetadata: { siteEmail: email }
+        }
     }
 }) => (
     <Layout>
@@ -235,10 +238,7 @@ const IndexPage = ({
                 <b>Have questions?</b>
             </h1>
             <h3>
-                Reach out to us at{" "}
-                <a href="mailto: lindsey-shoes@gmail.com">
-                    lindseys-shoes@gmail.com
-                </a>
+                Reach out to us at <a href={`mailto: ${email}`}>{email}</a>
             </h3>
         </Contact>
         <Footer />
@@ -249,7 +249,7 @@ export default IndexPage;
 
 IndexPage.propTypes = {
     data: PropTypes.shape({
-        caseStudies: PropTypes.shape({
+        shoes: PropTypes.shape({
             edges: PropTypes.array.isRequired
         })
     }).isRequired
@@ -257,6 +257,11 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
     query IndexQuery {
+        site {
+            siteMetadata {
+                siteEmail
+            }
+        }
         shoes: allPrismicShoe(
             sort: { fields: [last_publication_date], order: DESC }
         ) {

@@ -6,6 +6,7 @@ module.exports = {
     siteLanguage: "en", // Language Tag on <html> element
     siteLogo: "/logos/logo-1024.png", // Used for SEO and manifest
     siteDescription: "Lindsey's Shoes",
+    siteEmail: "lindseys-shoes@gmail.com",
     author: "Arthelon", // Author for schemaORGJSONLD
 
     // siteFBAppID: '123456789', // Facebook App ID - Optional
