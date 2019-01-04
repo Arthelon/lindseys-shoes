@@ -1,2 +1,4 @@
-[template.environment]
-  API_KEY = "MC5YQ3ZRakJBQUFEUUFUWVd2.XU3vv73vv70FN2xJ77-977-9Ae-_vX_vv73vv73vv73vv71SBu-_vXMGWu-_ve-_vT0YcO-_vUIsAw"
+[context.production]
+  publish = "public/"
+  command = "npm run build"
+  environment = { API_KEY = "MC5YQ3ZRakJBQUFEUUFUWVd2.XU3vv73vv70FN2xJ77-977-9Ae-_vX_vv73vv73vv73vv71SBu-_vXMGWu-_ve-_vT0YcO-_vUIsAw" }
