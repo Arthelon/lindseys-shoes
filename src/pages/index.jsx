@@ -237,7 +237,7 @@ const IndexPage = ({
             <h1>
                 <b>Have questions?</b>
             </h1>
-            <h3>
+            <h3 style={{ textAlign: "center" }}>
                 Reach out to us at <a href={`mailto: ${email}`}>{email}</a>
             </h3>
         </Contact>

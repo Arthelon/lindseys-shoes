@@ -10,6 +10,8 @@ import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import config from "../../config/website";
 
+const Image = styled(Img)``;
+
 const Hero = styled.section`
     width: 100%;
     height: 100vh;
@@ -20,6 +22,13 @@ const Hero = styled.section`
         > div {
             position: static !important;
         }
+    }
+
+    @media (max-width: ${props => props.theme.breakpoint.m}) {
+        height: 500px;
+    }
+    @media (max-width: ${props => props.theme.breakpoint.s}) {
+        height: 400px;
     }
 `;
 
@@ -41,7 +50,10 @@ const Title = styled.h1`
     max-width: ${props => props.theme.maxWidthText};
     text-align: center;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 3rem;
+    @media (max-width: ${props => props.theme.breakpoint.m}) {
+        padding: 1rem;
+    }
 `;
 
 const SubTitle = styled.h3`
@@ -52,8 +64,8 @@ const SubTitle = styled.h3`
 `;
 
 const Content = styled.main`
-    margin-top: 9rem;
-    margin-bottom: 9rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
     p {
         text-align: justify;
     }
@@ -98,7 +110,7 @@ const ShoeTemplate = ({ data: { prismicShoe: shoeNode } }) => {
             <Helmet title={`${data.name.text} | ${config.siteTitle}`} />
             <SEO caseNode={shoeNode} casePath={shoeNode.uid} caseSEO />
             <Hero>
-                <Img
+                <Image
                     fluid={data.header_image.localFile.childImageSharp.fluid}
                 />
                 <TitleWrapper py={4}>
