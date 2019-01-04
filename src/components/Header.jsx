@@ -1,14 +1,30 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "react-emotion";
-import HeroImageSrc from "../images/hero.jpg";
+import Img from "gatsby-image";
+
+const HeaderImage = styled(Img)`
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 900px;
+    img {
+        object-fit: cover !important;
+        object-position: center top !important;
+    }
+
+    @media (max-width: ${props => props.theme.breakpoint.s}) {
+        height: 700px;
+    }
+`;
 
 const HeaderWrapper = styled.header`
     display: flex;
     justify-content: center;
     width: 100%;
     height: 900px;
-    background-image: url(${HeroImageSrc});
-    background-size: cover;
     @media (max-width: ${props => props.theme.breakpoint.s}) {
         height: 700px;
     }
@@ -64,21 +80,24 @@ const Title = styled.div`
     }
 `;
 
-export default class Header extends React.Component {
-    render() {
-        return (
-            <HeaderWrapper>
-                <Logo>Lindsey's Shoes</Logo>
-                <Title
-                    justifyContent="center"
-                    alignItems="center"
-                    flexDirection="column"
-                >
-                    <h1>
-                        Hand-made Shoes for the <br /> Enlightened Customer
-                    </h1>
-                </Title>
-            </HeaderWrapper>
-        );
-    }
-}
+const Header = ({ image }) => (
+    <HeaderWrapper>
+        <HeaderImage fluid={image} />
+        <Logo image={image}>Lindsey's Shoes</Logo>
+        <Title
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
+        >
+            <h1>
+                Hand-made Shoes for the <br /> Enlightened Customer
+            </h1>
+        </Title>
+    </HeaderWrapper>
+);
+
+Header.propTypes = {
+    image: PropTypes.object.isRequired
+};
+
+export default Header;

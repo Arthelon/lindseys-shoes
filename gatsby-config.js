@@ -66,6 +66,13 @@ module.exports = {
                 ]
             }
         },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `src`,
+                path: `${__dirname}/src/`
+            }
+        },
         /* Must be placed at the end */
         "gatsby-plugin-offline",
         "gatsby-plugin-netlify"

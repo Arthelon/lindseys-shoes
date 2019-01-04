@@ -108,7 +108,7 @@ const GridItem = ({ uid, image, alt, title, subtitle }) => (
             <Img fluid={image} alt={alt} />
         </StyledLink>
         <ItemTitle>{title}</ItemTitle>
-        <ItemSubtitle>{subtitle}</ItemSubtitle>
+        {/* <ItemSubtitle>{subtitle}</ItemSubtitle> */}
     </Item>
 );
 
@@ -118,6 +118,5 @@ GridItem.propTypes = {
     uid: PropTypes.string.isRequired,
     image: PropTypes.any.isRequired,
     alt: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired
 };

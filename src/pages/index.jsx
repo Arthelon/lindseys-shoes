@@ -93,11 +93,12 @@ const IndexPage = ({
         shoes: { edges },
         site: {
             siteMetadata: { siteEmail: email }
-        }
+        },
+        heroImage
     }
 }) => (
     <Layout>
-        <Header />
+        <Header image={heroImage.childImageSharp.fluid} />
         <Wrapper
             p={4}
             mb={[4, 4, 7]}
@@ -114,7 +115,6 @@ const IndexPage = ({
                     }
                     alt={c.node.data.name.text}
                     title={c.node.data.name.text}
-                    subtitle={c.node.data.description.text}
                 />
             ))}
         </Wrapper>
@@ -251,12 +251,29 @@ IndexPage.propTypes = {
     data: PropTypes.shape({
         shoes: PropTypes.shape({
             edges: PropTypes.array.isRequired
+        }),
+        site: PropTypes.shape({
+            siteMetadata: PropTypes.shape({
+                siteEmail: PropTypes.string.isRequired
+            })
+        }),
+        heroImage: PropTypes.shape({
+            childImageSharp: PropTypes.shape({
+                fluid: PropTypes.object.isRequired
+            })
         })
     }).isRequired
 };
 
 export const pageQuery = graphql`
     query IndexQuery {
+        heroImage: file(relativePath: { eq: "images/hero.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 1920, quality: 90) {
+                    ...GatsbyImageSharpFluid_withWebp
+                }
+            }
+        }
         site {
             siteMetadata {
                 siteEmail
