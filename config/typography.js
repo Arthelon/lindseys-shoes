@@ -5,7 +5,7 @@ const typography = new Typography({
     baseFontSize: "18px",
     baseLineHeight: 1.45,
     headerFontFamily: [
-        "Raleway",
+        "Domine",
         "-apple-system",
         "BlinkMacSystemFont",
         "Segoe UI",
@@ -18,7 +18,7 @@ const typography = new Typography({
         "Segoe UI Symbol"
     ],
     bodyFontFamily: [
-        "Cabin",
+        "Roboto",
         "-apple-system",
         "BlinkMacSystemFont",
         "Segoe UI",
@@ -32,12 +32,12 @@ const typography = new Typography({
     ],
     googleFonts: [
         {
-            name: "Cabin",
-            styles: ["400"]
+            name: "Domine",
+            styles: ["400", "800"]
         },
         {
-            name: "Raleway",
-            styles: ["400", "800"]
+            name: "Roboto",
+            styles: ["400"]
         }
     ],
     scaleRatio: 3.998,

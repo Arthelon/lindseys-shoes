@@ -9,63 +9,7 @@ import GridItem from "../components/GridItem";
 import BeTheHero from "../images/be_the_hero.svg";
 import DataReport from "../images/data_report.svg";
 import MayTheForce from "../images/may_the_force.svg";
-import HeroImageSrc from "../images/hero.jpg";
-
-const Header = styled.header`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 900px;
-    background-image: url(${HeroImageSrc});
-    background-size: cover;
-`;
-
-const Logo = styled.h2`
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    padding: 0 1.75rem;
-    margin-top: 50px;
-`;
-
-const Hero = styled.div`
-    width: 50%;
-    margin-top: 10em;
-    max-height: 250px;
-    text-align: center;
-    background: white;
-    border-radius: 5px;
-    padding: 2rem;
-    h1 {
-        letter-spacing: 0.2rem;
-        line-height: 4rem;
-        font-size: 3rem;
-    }
-    h3 {
-        font-family: ${props => props.theme.fontFamily.body};
-        margin-top: 2rem;
-        font-size: 1.85rem;
-        font-weight: 400;
-    }
-    @media (max-width: ${props => props.theme.breakpoint.m}) {
-        h1 {
-            line-height: 3.5rem;
-        }
-        h3 {
-            font-size: 1.5rem;
-        }
-    }
-    @media (max-width: ${props => props.theme.breakpoint.s}) {
-        h1 {
-            line-height: 2.5rem;
-        }
-        h3 {
-            font-size: 1.3rem;
-        }
-    }
-`;
+import Header from "../components/Header";
 
 const Wrapper = styled(Flex)`
     max-width: ${props => props.theme.maxWidth};
@@ -150,18 +94,7 @@ const IndexPage = ({
     }
 }) => (
     <Layout>
-        <Header>
-            <Logo>Lindsey's Shoes</Logo>
-            <Hero
-                justifyContent="center"
-                alignItems="center"
-                flexDirection="column"
-            >
-                <h1>
-                    Hand-made Shoes for the <br /> Enlightened Customer
-                </h1>
-            </Hero>
-        </Header>
+        <Header />
         <Wrapper
             p={4}
             mb={[4, 4, 7]}
