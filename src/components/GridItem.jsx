@@ -54,8 +54,8 @@ const Overlay = styled(Flex)`
             transform: translateY(2rem);
         }
         &:last-child {
-            font-size: 3.5rem;
-            line-height: 3rem;
+            font-size: 2.5rem;
+            line-height: 2.7rem;
             transition: transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
             transform: translateY(4rem);
             font-family: ${props => props.theme.fontFamily.heading};
@@ -101,9 +101,7 @@ const GridItem = ({ uid, image, alt, title, subtitle }) => (
                 alignItems="center"
                 flexDirection="column"
             >
-                <span>
-                    view <br /> shoe
-                </span>
+                <span>view shoe</span>
             </Overlay>
             <Img fluid={image} alt={alt} />
         </StyledLink>

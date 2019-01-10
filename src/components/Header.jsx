@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "react-emotion";
 import Img from "gatsby-image";
+import Navbar from "./Navbar";
 
 const HeaderImage = styled(Img)`
     position: absolute !important;
@@ -9,36 +10,27 @@ const HeaderImage = styled(Img)`
     left: 0;
     width: 100%;
     z-index: -1;
-    height: 900px;
+    height: 700px;
     img {
         object-fit: cover !important;
         object-position: center top !important;
     }
 
     @media (max-width: ${props => props.theme.breakpoint.s}) {
-        height: 700px;
+        height: 500px;
     }
 `;
 
 const HeaderWrapper = styled.header`
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     width: 100%;
-    height: 900px;
+    height: 700px;
     @media (max-width: ${props => props.theme.breakpoint.s}) {
-        height: 700px;
+        height: 500px;
     }
-`;
-
-const Logo = styled.h2`
-    font-style: italic;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    padding: 0 1.75rem;
-    margin-top: 50px;
 `;
 
 const Title = styled.div`
@@ -47,7 +39,6 @@ const Title = styled.div`
     padding: 2rem;
     display: flex;
     alignitems: center;
-    margin-top: 10em;
     text-align: center;
     background: white;
     border-radius: 5px;
@@ -64,15 +55,17 @@ const Title = styled.div`
     }
     @media (max-width: ${props => props.theme.breakpoint.m}) {
         h1 {
-            line-height: 3.5rem;
+            line-height: 4rem;
         }
         h3 {
             font-size: 1.5rem;
         }
     }
     @media (max-width: ${props => props.theme.breakpoint.s}) {
+        padding: 0.8rem;
         h1 {
-            line-height: 3rem;
+            line-height: 3.5rem;
+            font-size: 3rem;
         }
         h3 {
             font-size: 1.3rem;
@@ -83,7 +76,7 @@ const Title = styled.div`
 const Header = ({ image }) => (
     <HeaderWrapper>
         <HeaderImage fluid={image} />
-        <Logo image={image}>Lindsey's Shoes</Logo>
+        <Navbar />
         <Title
             justifyContent="center"
             alignItems="center"
