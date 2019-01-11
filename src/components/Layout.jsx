@@ -1,17 +1,18 @@
 /* eslint no-unused-expressions: 0 */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { injectGlobal } from 'react-emotion';
-import { ThemeProvider } from 'emotion-theming';
+import React from "react";
+import PropTypes from "prop-types";
+import { injectGlobal } from "react-emotion";
+import { ThemeProvider } from "emotion-theming";
 
-import SEO from './SEO';
-import theme from '../../config/theme';
+import SEO from "./SEO";
+import theme from "../../config/theme";
 
 injectGlobal`
   *, *:before, *:after {
     box-sizing: inherit;
   }
+
   html {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -22,7 +23,9 @@ injectGlobal`
       color: ${theme.colors.primary};
     }
   }
-  @media (max-width: ${theme.breakpoint.m}), (max-device-width: ${theme.breakpoint.m}) {
+  @media (max-width: ${theme.breakpoint.m}), (max-device-width: ${
+    theme.breakpoint.m
+}) {
     html {
       font-size: 16px !important;
       h1 {
@@ -42,7 +45,9 @@ injectGlobal`
       }
     }
   }
-  @media (max-width: ${theme.breakpoint.s}), (max-device-width: ${theme.breakpoint.s}) {
+  @media (max-width: ${theme.breakpoint.s}), (max-device-width: ${
+    theme.breakpoint.s
+}) {
     html {
       h1 {
         font-size: 2.441rem
@@ -91,16 +96,16 @@ injectGlobal`
 `;
 
 const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <React.Fragment>
-      <SEO />
-      {children}
-    </React.Fragment>
-  </ThemeProvider>
+    <ThemeProvider theme={theme}>
+        <React.Fragment>
+            <SEO />
+            {children}
+        </React.Fragment>
+    </ThemeProvider>
 );
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired
 };
 
 export default Layout;

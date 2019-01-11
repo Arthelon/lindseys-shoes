@@ -16,6 +16,7 @@ const theme = {
     },
     maxWidth: "1800px",
     maxWidthText: "1000px",
+    minContentHeight: "800px",
     breakpoint: {
         xs: "400px",
         s: "600px",

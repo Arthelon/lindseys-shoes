@@ -4,68 +4,61 @@ import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 import styled from "react-emotion";
 import Img from "gatsby-image";
-import { Box } from "grid-emotion";
+import { Flex, Box } from "grid-emotion";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import config from "../../config/website";
+import Navbar from "../components/Navbar";
 
 const Image = styled(Img)``;
 
-const Hero = styled.section`
+const Wrapper = styled(Flex)`
     width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    .gatsby-image-outer-wrapper {
-        position: static !important;
-        > div {
-            position: static !important;
-        }
-    }
-
+    min-height: ${props => props.theme.minContentHeight};
     @media (max-width: ${props => props.theme.breakpoint.m}) {
-        height: 500px;
+        flex-direction: column;
+    }
+`;
+
+const ImageWrapper = styled(Box)`
+    width: 50%;
+    @media (max-width: ${props => props.theme.breakpoint.m}) {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+`;
+
+const ContentWrapper = styled(Box)`
+    width: 50%;
+    padding: 1em 3em;
+    @media (max-width: ${props => props.theme.breakpoint.m}) {
+        width: 100%;
     }
     @media (max-width: ${props => props.theme.breakpoint.s}) {
-        height: 400px;
+        padding: 1em 1.5em;
     }
 `;
 
-const Wrapper = styled(Box)`
-    max-width: ${props => props.theme.maxWidth};
+const TitleWrapper = styled(Flex)`
+    margin-bottom: 2em;
 `;
 
-const TitleWrapper = styled(Box)`
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: ${props => props.theme.colors.bg};
-`;
-
-const Title = styled.h1`
+const Title = styled.h2`
     color: ${props => props.theme.colors.text};
     max-width: ${props => props.theme.maxWidthText};
     text-align: center;
-    margin: 0 auto;
-    padding: 3rem;
-    @media (max-width: ${props => props.theme.breakpoint.m}) {
-        padding: 1rem;
-    }
+    margin: 0;
 `;
 
 const SubTitle = styled.h3`
     color: ${props => props.theme.colors.text};
     max-width: ${props => props.theme.maxWidthText};
-    margin: 0 auto;
+    margin: 0;
     text-align: center;
 `;
 
 const Content = styled.main`
-    margin-top: 6rem;
-    margin-bottom: 6rem;
     p {
         text-align: justify;
     }
@@ -93,14 +86,6 @@ const Content = styled.main`
         margin-bottom: 6rem;
         text-align: center;
     }
-    @media (max-width: ${props => props.theme.breakpoint.m}) {
-        margin-top: 6rem;
-        margin-bottom: 6rem;
-        .block-img {
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-        }
-    }
 `;
 
 const ShoeTemplate = ({ data: { prismicShoe: shoeNode } }) => {
@@ -109,19 +94,34 @@ const ShoeTemplate = ({ data: { prismicShoe: shoeNode } }) => {
         <Layout>
             <Helmet title={`${data.name.text} | ${config.siteTitle}`} />
             <SEO caseNode={shoeNode} casePath={shoeNode.uid} caseSEO />
-            <Hero>
-                <Image
-                    fluid={data.header_image.localFile.childImageSharp.fluid}
-                />
-                <TitleWrapper py={4}>
-                    <Title>{data.name.text}</Title>
-                </TitleWrapper>
-            </Hero>
-            <Wrapper py={4} px={4} mx="auto">
-                <SubTitle>${data.price}</SubTitle>
-                <Content
-                    dangerouslySetInnerHTML={{ __html: data.description.html }}
-                />
+            <Navbar />
+            <Wrapper
+                flexDirection="row"
+                justifyContent="center"
+                flexWrap="wrap"
+            >
+                <ImageWrapper>
+                    <Image
+                        fluid={
+                            data.header_image.localFile.childImageSharp.fluid
+                        }
+                    />
+                </ImageWrapper>
+                <ContentWrapper>
+                    <TitleWrapper
+                        flexDirection="row"
+                        justifyContent="space-between"
+                        alignItems="flex-end"
+                    >
+                        <Title>{data.name.text}</Title>
+                        <SubTitle>${data.price}</SubTitle>
+                    </TitleWrapper>
+                    <Content
+                        dangerouslySetInnerHTML={{
+                            __html: data.description.html
+                        }}
+                    />
+                </ContentWrapper>
             </Wrapper>
             <Footer isCase />
         </Layout>
