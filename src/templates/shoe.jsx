@@ -11,6 +11,25 @@ import SEO from "../components/SEO";
 import config from "../../config/website";
 import Navbar from "../components/Navbar";
 
+const Button = styled.div`
+    cursor: pointer;
+    padding: 1.5em 3em;
+    background: ${props => props.theme.colors.primary};
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.5px;
+    width: 300px;
+    color: ${props => props.theme.colors.textInvert};
+    transition: all 500ms ease 0s;
+    @media (max-width: ${props => props.theme.breakpoint.m}) {
+        margin: 2em auto;
+        width: 100%;
+    }
+    :hover {
+        background: ${props => props.theme.colors.primaryDark};
+    }
+`;
+
 const Image = styled(Img)``;
 
 const Wrapper = styled(Flex)`
@@ -121,6 +140,7 @@ const ShoeTemplate = ({ data: { prismicShoe: shoeNode } }) => {
                             __html: data.description.html
                         }}
                     />
+                    <Button>Buy Now</Button>
                 </ContentWrapper>
             </Wrapper>
             <Footer isCase />
