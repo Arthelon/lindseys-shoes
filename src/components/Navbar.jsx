@@ -14,8 +14,9 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.h2`
+    font-family: "Eczar", ${props => props.theme.fontFamily.heading};
     font-style: italic;
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     margin-bottom: 0;
     cursor: pointer;
 `;

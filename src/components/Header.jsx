@@ -34,6 +34,7 @@ const HeaderWrapper = styled.header`
 `;
 
 const Title = styled.div`
+    margin-top: 1em;
     max-width: ${props => props.theme.maxWidthText};
     height: fit-content;
     padding: 2rem;

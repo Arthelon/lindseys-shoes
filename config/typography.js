@@ -38,6 +38,10 @@ const typography = new Typography({
         {
             name: "Roboto",
             styles: ["400"]
+        },
+        {
+            name: "Eczar",
+            styles: ["400"]
         }
     ],
     scaleRatio: 3.998,
