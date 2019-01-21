@@ -34,7 +34,7 @@ export default class Navbar extends React.Component {
     render() {
         return (
             <Wrapper>
-                <Logo onClick={this.handleClick}>Lindsey's Shoes</Logo>
+                <Logo onClick={this.handleClick}>Jay Walking Co.</Logo>
             </Wrapper>
         );
     }

@@ -55,7 +55,7 @@ const Footer = ({ isCase }) => {
                             Copyright &copy; {year} by{" "}
                             <a href="">Lindsey's Shoes</a>
                         </div>
-                        <div>Facebook &mdash; Etsy &mdash; Twitter</div>
+                        <div>Facebook &mdash; <a href="https://www.etsy.com/shop/JayWalkingCo">Etsy</a>&mdash; Twitter</div>
                     </React.Fragment>
                 )}
             </Inner>
