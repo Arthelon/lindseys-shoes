@@ -11,7 +11,10 @@ import SEO from "../components/SEO";
 import config from "../../config/website";
 import Navbar from "../components/Navbar";
 
-const Button = styled.div`
+const Button = styled.a`
+    margin-top: 1em;
+    display: block;
+    text-decoration: none;
     cursor: pointer;
     padding: 1.5em 3em;
     background: ${props => props.theme.colors.primary};
@@ -26,6 +29,7 @@ const Button = styled.div`
         width: 100%;
     }
     :hover {
+        color: ${props => props.theme.colors.textInvert};
         background: ${props => props.theme.colors.primaryDark};
     }
 `;
@@ -141,7 +145,7 @@ const ShoeTemplate = ({ data: { prismicShoe: shoeNode } }) => {
                             __html: data.description.html
                         }}
                     />
-                    <Button>Buy Now</Button>
+                    <Button href={data.purchase_link.url}>Buy Now</Button>
                 </ContentWrapper>
             </Wrapper>
             <Footer isCase />
@@ -184,6 +188,9 @@ export const pageQuery = graphql`
                     text
                 }
                 price
+                purchase_link {
+                    url
+                }
                 description {
                     html
                 }
