@@ -66,8 +66,9 @@ const TitleWrapper = styled(Flex)`
 const Title = styled.h2`
     color: ${props => props.theme.colors.text};
     max-width: ${props => props.theme.maxWidthText};
-    text-align: center;
-    margin: 0;
+    text-align: left;
+    margin-right: 0.5em;
+    margin-bottom: 0;
 `;
 
 const SubTitle = styled.h3`
